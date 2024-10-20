@@ -53,10 +53,19 @@ def add_at_index(input: list[int], added_int: int, index: int) -> None:
     is the index at which it should be added.
     Returns: None
     """
-    if index < 0 or index >= len(input):
+    if index < 0 or index > len(input):
         raise IndexError("Index is out of bounds for the input list")
-    input.append(0)
-    i: int = len(input) - 2
+
+    if index == 0 and len(input) == 0:
+        input.append(added_int)
+        return None
+
+    input.append(added_int)
+
+    if len(input) == 1:
+        i: int = 0
+    else:
+        i: int = len(input) - 2
     while i > index - 1:
         input[i + 1] = input[i]
         i -= 1
