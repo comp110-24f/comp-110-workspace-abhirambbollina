@@ -11,6 +11,8 @@ def all(checked_list: list[int], check_int: int) -> bool:
     Variables: checked_list, check_int, i
     Return Type: bool
     """
+    if len(checked_list) == 0:
+        return False
 
     # Returns false immediatly if any values don't match
     # Returns true if while loop completes
